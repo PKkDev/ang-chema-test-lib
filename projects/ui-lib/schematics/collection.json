@@ -1,0 +1,13 @@
+{
+    "$schema": "../../../node_modules/@angular-devkit/schematics/collection-schema.json",
+    "schematics": {
+        "blank-table-cs": {
+            "factory": "./blank-table-cs/index#blankTableCs",
+            "schema": "./blank-table-cs/schema.json",
+            "description": "Шаблон компонентов для создания таблицы по dto",
+            "aliases": [
+                "btc"
+            ]
+        }
+    }
+}

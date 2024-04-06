@@ -1,0 +1,7 @@
+import { formatDate } from '@angular/common';
+import { <%= modelName %> } from './<%= dasherize(modelName) %>'
+
+export type IMapped<%= modelName %> = ReturnType<typeof map<%= modelName %>>;
+export const map<%= modelName %> = (dto: <%= modelName %>) => {
+
+};  

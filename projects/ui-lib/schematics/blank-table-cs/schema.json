@@ -1,0 +1,46 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "BlankTableCsId",
+    "title": "Создание шаблона компонента",
+    "type": "object",
+    "required": [
+        "name",
+        "csfile"
+    ],
+    "properties": {
+        "name": {
+            "description": "Название компонента",
+            "type": "string",
+            "minLength": 1,
+            "x-prompt": "Название компонента",
+            "$default": {
+                "$source": "argv",
+                "index": 0
+            }
+        },
+        "csfile": {
+            "description": "Путь к .cs файлу",
+            "type": "string",
+            "minLength": 1,
+            "x-prompt": "Путь к .cs файлу"
+        },
+        "project": {
+            "type": "string",
+            "description": "название проекта",
+            "$default": {
+                "$source": "projectName"
+            }
+        },
+        "path": {
+            "type": "string",
+            "format": "path",
+            "description": "Путь где будет развёрнут компонент",
+            "visible": false
+        },
+        "module": {
+            "type": "string",
+            "description": "NgModule для испорта",
+            "alias": "m"
+        }
+    }
+}

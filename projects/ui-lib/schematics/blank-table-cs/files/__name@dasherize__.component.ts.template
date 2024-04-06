@@ -1,0 +1,51 @@
+import { OnInit, AfterViewInit, Component, ChangeDetectorRef, ViewChild } from '@angular/core';
+import { IMapped<%= modelName %> } from './<%= dasherize(name) %>.component.constants';
+import { <%= classify(name + '-data') %>Service } from './<%= dasherize(name) %>-data.service';
+import { StringIndexerStrict } from '';
+import { BaseTableViewComponent } from '';
+import { DisplayErrorService } from '';
+
+// @SubsDestroyer()
+@Component({
+  selector: 'app-<%= dasherize(name) %>',
+  templateUrl: './<%= dasherize(name) %>.component.html',
+  styleUrls: ['./<%= dasherize(name) %>.component.scss'],
+  providers: [<%= classify(name + '-data') %>Service]
+})
+export class <%= classify(name) %>Component implements OnInit, AfterViewInit { 
+
+  public groupKey = '<%= dasherize(modelName) %>-key';
+  public stringIndexerHelper: StringIndexerStrict<any> | undefined;
+  public isLoading = false;
+
+  @ViewChild('baseTableView') baseTableView!: BaseTableViewComponent<IMapped<%= modelName %>>;
+  public tableData: IMapped<%= modelName %>[] = [];
+  public totalCount: number | undefined;
+
+  constructor(
+    private dataService: <%= classify(name + '-data') %>Service, 
+    private cdr: ChangeDetectorRef,
+    private des: DisplayErrorService
+  ) { }
+
+  ngOnInit(): void { }
+
+  ngAfterViewInit(): void {
+    this.fillColumn();
+  } 
+
+  private fillColumn() {
+    this.stringIndexerHelper = this.dataService.getColumnIndexer( this.groupKey );
+    this.cdr.detectChanges();
+  }
+
+  public onNeedRefreshData() {
+
+  }
+
+  public onRowSelected(item: IMapped<%= modelName %> | null) {
+
+  }
+}
+
+// <%= modelName %> 

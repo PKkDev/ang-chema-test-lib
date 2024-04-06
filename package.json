@@ -2,13 +2,12 @@
   "name": "chema-test-lib",
   "version": "0.0.0",
   "scripts": {
-    "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build",
-    "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "buildroot": "ng build ui-lib",
+    "postbuildroot": "cd projects/ui-lib && npm run build",
+    "test-start": "schematics .:btc --name='test-table' --csfile='C:/TelegramUserShedullers.cs'"
   },
   "private": true,
+  "schematics": "./dist/ui-lib/schematics/collection.json",
   "dependencies": {
     "@angular/animations": "^16.2.0",
     "@angular/common": "^16.2.0",
@@ -20,7 +19,9 @@
     "@angular/router": "^16.2.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
-    "zone.js": "~0.13.0"
+    "zone.js": "~0.13.0",
+    "fs-extra": "^11.2.0",
+    "copyfiles": "~2.4.1"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^16.2.13",

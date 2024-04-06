@@ -1,0 +1,11 @@
+<app-base-table-view
+  #baseTableView
+  [groupKey]="groupKey"
+  [stringIndexerHelper]="stringIndexerHelper"
+  [isLoading]="isLoading"
+  [tableData]="tableData"
+  [totalCount]="totalCount"
+  [rowIdent]="'recId'"
+  (needRefreshData)="onNeedRefreshData()"
+  (rowSelected)="onRowSelected($event)">
+</app-base-table-view>

@@ -1,0 +1,16 @@
+import { Injectable } from '@angular/core';
+import { IMapped<%= modelName %> } from './<%= dasherize(name) %>.component.constants';
+import { StringIndexerStrict } from '';
+import { ColumnItemStrict } from '';
+
+@Injectable()
+export class <%= classify(name + '-data') %>Service {
+    constructor() { }
+
+    public getColumnIndexer(groupKey: string): StringIndexerStrict<IMapped<%= modelName %>> {
+        const stringIndexerHelper = new StringIndexerStrict<IMapped<%= modelName %>>(groupKey); 
+ 
+        return stringIndexerHelper;
+    }
+
+}
